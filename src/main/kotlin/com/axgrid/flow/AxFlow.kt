@@ -1,9 +1,13 @@
 package com.axgrid.flow
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo
 import mu.KLogging
 import kotlin.reflect.KClass
 
+@JsonTypeInfo(use=JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.PROPERTY)
 interface IAxFlowEvent { val name: String }
+
+@JsonTypeInfo(use=JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.PROPERTY)
 interface IAxFlowState { val name: String }
 
 class AxFlow<T: IAxFlowContext>(
